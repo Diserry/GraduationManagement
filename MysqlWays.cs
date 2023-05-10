@@ -18,7 +18,7 @@ namespace 毕业生管理系统
         {
             Builder.Database = "graduatemanagement";
             Builder.UserID = "root";
-            Builder.Password = "zjk520";
+            Builder.Password = "111111";
             Builder.Server = "localhost";
             Builder.CharacterSet = "utf8";
             MySqlConnection connection = new MySqlConnection(Builder.ConnectionString);
