@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6B2D4E0-49B2-48E5-B797-6FE692C64962}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>毕业生管理系统</RootNamespace>
+    <AssemblyName>毕业生管理系统</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.31\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.31\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GraduateManageMySqlConnection.cs" />
+    <Compile Include="MysqlWays.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Enterprise information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enterprise information.Designer.cs">
+      <DependentUpon>Enterprise information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise album.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enterprise album.Designer.cs">
+      <DependentUpon>Enterprise album.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business management.Designer.cs">
+      <DependentUpon>Business management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise records.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enterprise records.Designer.cs">
+      <DependentUpon>Enterprise records.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enterprise details.Designer.cs">
+      <DependentUpon>Enterprise details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Are you sure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Are you sure.Designer.cs">
+      <DependentUpon>Are you sure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student personal information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student personal information.Designer.cs">
+      <DependentUpon>Student personal information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student batch import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student batch import.Designer.cs">
+      <DependentUpon>Student batch import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Students view the declaration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Students view the declaration.Designer.cs">
+      <DependentUpon>Students view the declaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student management.Designer.cs">
+      <DependentUpon>Student management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student home page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student home page.Designer.cs">
+      <DependentUpon>Student home page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employment information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment information.Designer.cs">
+      <DependentUpon>Employment information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employment management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment management.Designer.cs">
+      <DependentUpon>Employment management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employment statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment statistics.Designer.cs">
+      <DependentUpon>Employment statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Post management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Post management.Designer.cs">
+      <DependentUpon>Post management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Post record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Post record.Designer.cs">
+      <DependentUpon>Post record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Position details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Position details.Designer.cs">
+      <DependentUpon>Position details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Position details_ enterprise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Position details_ enterprise.Designer.cs">
+      <DependentUpon>Position details_ enterprise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="My resume.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My resume.Designer.cs">
+      <DependentUpon>My resume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="My interview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My interview.Designer.cs">
+      <DependentUpon>My interview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher batch import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher batch import.Designer.cs">
+      <DependentUpon>Teacher batch import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff personal information interface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff personal information interface.Designer.cs">
+      <DependentUpon>Staff personal information interface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty homepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculty homepage.Designer.cs">
+      <DependentUpon>Faculty homepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home page of faculty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home page of faculty.Designer.cs">
+      <DependentUpon>Home page of faculty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Change teacher information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change teacher information.Designer.cs">
+      <DependentUpon>Change teacher information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Campus recruitment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Campus recruitment.Designer.cs">
+      <DependentUpon>Campus recruitment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graduation application pending review record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graduation application pending review record.Designer.cs">
+      <DependentUpon>Graduation application pending review record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graduation application not submitted.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graduation application not submitted.Designer.cs">
+      <DependentUpon>Graduation application not submitted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graduation application status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graduation application status.Designer.cs">
+      <DependentUpon>Graduation application status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graduation application system.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graduation application system.Designer.cs">
+      <DependentUpon>Graduation application system.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graduation Application Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graduation Application Form.Designer.cs">
+      <DependentUpon>Graduation Application Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pass of graduation application.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pass of graduation application.Designer.cs">
+      <DependentUpon>Pass of graduation application.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Job information.Designer.cs">
+      <DependentUpon>Job information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Job management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Job management.Designer.cs">
+      <DependentUpon>Job management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employment record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employment record.Designer.cs">
+      <DependentUpon>Employment record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enterprise registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enterprise registration.Designer.cs">
+      <DependentUpon>Enterprise registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add students.Designer.cs">
+      <DependentUpon>Add students.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add teacher.Designer.cs">
+      <DependentUpon>Add teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popular enterprise records.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popular enterprise records.Designer.cs">
+      <DependentUpon>Popular enterprise records.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User login page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User login page.Designer.cs">
+      <DependentUpon>User login page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student user homepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student user homepage.Designer.cs">
+      <DependentUpon>Student user homepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resume management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resume management.Designer.cs">
+      <DependentUpon>Resume management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resume record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resume record.Designer.cs">
+      <DependentUpon>Resume record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher management.Designer.cs">
+      <DependentUpon>Teacher management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interview management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview management.Designer.cs">
+      <DependentUpon>Interview management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interview details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interview details.Designer.cs">
+      <DependentUpon>Interview details.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Enterprise information.resx">
+      <DependentUpon>Enterprise information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enterprise album.resx">
+      <DependentUpon>Enterprise album.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business management.resx">
+      <DependentUpon>Business management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enterprise records.resx">
+      <DependentUpon>Enterprise records.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enterprise details.resx">
+      <DependentUpon>Enterprise details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Are you sure.resx">
+      <DependentUpon>Are you sure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student personal information.resx">
+      <DependentUpon>Student personal information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student batch import.resx">
+      <DependentUpon>Student batch import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Students view the declaration.resx">
+      <DependentUpon>Students view the declaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student management.resx">
+      <DependentUpon>Student management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student home page.resx">
+      <DependentUpon>Student home page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment information.resx">
+      <DependentUpon>Employment information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment management.resx">
+      <DependentUpon>Employment management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment statistics.resx">
+      <DependentUpon>Employment statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Post management.resx">
+      <DependentUpon>Post management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Post record.resx">
+      <DependentUpon>Post record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Position details.resx">
+      <DependentUpon>Position details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Position details_ enterprise.resx">
+      <DependentUpon>Position details_ enterprise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My resume.resx">
+      <DependentUpon>My resume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My interview.resx">
+      <DependentUpon>My interview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher batch import.resx">
+      <DependentUpon>Teacher batch import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff personal information interface.resx">
+      <DependentUpon>Staff personal information interface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculty homepage.resx">
+      <DependentUpon>Faculty homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home page of faculty.resx">
+      <DependentUpon>Home page of faculty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Change teacher information.resx">
+      <DependentUpon>Change teacher information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Campus recruitment.resx">
+      <DependentUpon>Campus recruitment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graduation application pending review record.resx">
+      <DependentUpon>Graduation application pending review record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graduation application not submitted.resx">
+      <DependentUpon>Graduation application not submitted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graduation application status.resx">
+      <DependentUpon>Graduation application status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graduation application system.resx">
+      <DependentUpon>Graduation application system.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graduation Application Form.resx">
+      <DependentUpon>Graduation Application Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pass of graduation application.resx">
+      <DependentUpon>Pass of graduation application.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job information.resx">
+      <DependentUpon>Job information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job management.resx">
+      <DependentUpon>Job management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employment record.resx">
+      <DependentUpon>Employment record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enterprise registration.resx">
+      <DependentUpon>Enterprise registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add students.resx">
+      <DependentUpon>Add students.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add teacher.resx">
+      <DependentUpon>Add teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popular enterprise records.resx">
+      <DependentUpon>Popular enterprise records.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User login page.resx">
+      <DependentUpon>User login page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Student user homepage.resx">
+      <DependentUpon>Student user homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resume management.resx">
+      <DependentUpon>Resume management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resume record.resx">
+      <DependentUpon>Resume record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher management.resx">
+      <DependentUpon>Teacher management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interview management.resx">
+      <DependentUpon>Interview management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interview details.resx">
+      <DependentUpon>Interview details.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Desktop 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Desktop 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\后台登录页E.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\后台登录页E.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\后台登录页E %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\后台登录页B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg0 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\招聘 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\申报信息.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\项目封面2%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
